@@ -66,17 +66,13 @@ htmlDiv.appendChild(content);
 content.addEventListener("keydown", (event) => {
     if(event.shiftKey && event.key == "Enter") {
         event.preventDefault();
+        let html = content.value;
         if(selectedElement) {
-            if(content.value != "" && /^<.+>$/.test(content.value)) {
-                selectedElement.insertAdjacentHTML('beforebegin', content.value);
-                let newVersion = selectedElement.previousSibling;
-                selectedElement.parentElement.removeChild(selectedElement)
-                selectedElement = newVersion;
-                selectedElement.style.outline = "4px solid #FF10F0";
-            }
-            else {
-                selectedElement.style.outline = "4px solid #FF10F0";
-                content.value = selectedElement.outerHTML;
+            selectedElement.insertAdjacentHTML('beforebegin', html.trim());
+            let newVersion = selectedElement.previousSibling;
+            selectedElement.parentElement.removeChild(selectedElement)
+            selectedElement = newVersion;
+            selectedElement.style.outline = "4px solid #FF10F0";
             }
         }
     }
