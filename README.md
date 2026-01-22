@@ -1,8 +1,8 @@
 # reiDevSourceTool
 HTML source editor bookmarklet made in Javascript.
 
-In order to run it you must:
-1. Bookmark
+# How to run
+1. Bookmark javascript:fetch('https://hi-imrei.github.io/reiDevSourceTool/element.js')   .then(r => r.text())   .then(code => { (0, eval)(code); })   .catch(err => alert('Failed to load script: ' + err));
 2. Navigate to another page
 3. Run the bookmark and let the magic happen!
 
