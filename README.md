@@ -8,4 +8,4 @@ In order to run it you must:
 
 # License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under a custom license. See the [LICENSE](LICENSE) file for details.
