@@ -68,11 +68,7 @@ content.addEventListener("keydown", (event) => {
         event.preventDefault();
         if(selectedElement) {
             if(content.value != "") {
-                let html = content.value;
-                if(!/^<.+>$/.test(html)) {
-                    html = `<span>${html}</span>`;
-                }
-                selectedElement.insertAdjacentHTML('beforebegin', html);
+                selectedElement.insertAdjacentHTML('beforebegin', content.value);
                 let newVersion = selectedElement.previousSibling;
                 selectedElement.parentElement.removeChild(selectedElement)
                 selectedElement = newVersion;
