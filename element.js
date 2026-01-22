@@ -67,11 +67,13 @@ content.addEventListener("keydown", (event) => {
     if(event.shiftKey && event.key == "Enter") {
         event.preventDefault();
         if(selectedElement) {
-            selectedElement.insertAdjacentHTML('beforebegin', content.value);
-            let newVersion = selectedElement.previousSibling;
-            selectedElement.parentElement.removeChild(selectedElement)
-            selectedElement = newVersion;
-            selectedElement.style.outline = "4px solid #FF10F0";
+            if(content.value != "") {
+                selectedElement.insertAdjacentHTML('beforebegin', content.value);
+                let newVersion = selectedElement.previousSibling;
+                selectedElement.parentElement.removeChild(selectedElement)
+                selectedElement = newVersion;
+                selectedElement.style.outline = "4px solid #FF10F0";
+            }
         }
     }
 })
