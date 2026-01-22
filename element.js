@@ -100,15 +100,15 @@ doc.addEventListener("mouseout", (event) => {
 
 //Disables links when outlined
 doc.addEventListener("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    
     if(enabled && event.target.classList != "reiDev") {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
         if(selectedElement && selectedElement != event.target) {
             selectedElement.style.outline = "none";
         }
         content.value = event.target.outerHTML;
+        content.value = content.value.replace(/style="outline:\s*cyan solid 4px;"/gi, '');
         content.style.opacity = "1";
         content.readOnly = false;
         selectedElement = event.target;
@@ -121,8 +121,11 @@ doc.addEventListener("click", (event) => {
 doc.addEventListener("keydown", (event) => {
     const key = event.key;
     if(key == "Escape") {
-        container.remove();
+        container.style.display = "none";
         enabled = false;
         lastTarget.style.outline = "none";
+        lastTarget = null;
+        selectedElement.style.outline = "none";
+        selectedElement = null;
     }
 }, true)
