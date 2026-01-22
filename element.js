@@ -62,13 +62,15 @@ container.appendChild(htmlDiv);
 htmlDiv.append(htmlTitle);
 htmlDiv.appendChild(content);
 
-//Applies changes when shift enter pressed
+//Applies changes when shift enter pressed and if no tags included then change
 content.addEventListener("keydown", (event) => {
     if(event.shiftKey && event.key == "Enter") {
         event.preventDefault();
         let html = content.value;
+        const regex = /^<.*>$/s;
         if(selectedElement) {
-            selectedElement.insertAdjacentHTML('beforebegin', html.trim());
+            if(regex.test(html)) {
+            selectedElement.insertAdjacentHTML('beforebegin', html);
             let newVersion = selectedElement.previousSibling;
             selectedElement.parentElement.removeChild(selectedElement)
             selectedElement = newVersion;
