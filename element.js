@@ -67,12 +67,16 @@ content.addEventListener("keydown", (event) => {
     if(event.shiftKey && event.key == "Enter") {
         event.preventDefault();
         if(selectedElement) {
-            if(content.value != "") {
+            if(content.value != "" && /^<.+>$/.test(content.value)) {
                 selectedElement.insertAdjacentHTML('beforebegin', content.value);
                 let newVersion = selectedElement.previousSibling;
                 selectedElement.parentElement.removeChild(selectedElement)
                 selectedElement = newVersion;
                 selectedElement.style.outline = "4px solid #FF10F0";
+            }
+            else {
+                selectedElement.style.outline = "4px solid #FF10F0";
+                content.value = selectedElement.outerHTML;
             }
         }
     }
