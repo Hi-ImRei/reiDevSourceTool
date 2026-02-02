@@ -2,9 +2,9 @@
 HTML source editor bookmarklet made in Javascript.
 
 # How to run
-1. Bookmark **javascript:fetch('https://hi-imrei.github.io/reiDevSourceTool/element.js')   .then(r => r.text())   .then(code => { (0, eval)(code); })   .catch(err => alert('Failed to load script: ' + err));**
-2. Navigate to another page
-3. Run the bookmark and let the magic happen!
+1. Bookmark **javascript:fetch('https://raw.githubusercontent.com/Hi-ImRei/reiDevSourceTool/refs/heads/main/element.js').then(response => response.text()).then(code => { (0, eval)(code);}).catch(error => alert('Failed to load script: ' + error));**
+3. Navigate to another page
+4. Run the bookmark and let the magic happen!
 
 # License
 
